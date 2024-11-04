@@ -1,36 +1,40 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: Welcome to slurmtools
+description: Easily submit and monitor NONMEM jobs to slurm from R
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Easily submit and monitor NONMEM jobs to slurm from R
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/slurmtools.png
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Slurmtools User Guide
+      link: /functions/0_intro/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: Read the slurmtools docs
+      link: https://a2-ai.github.io/slurmtools/
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Slurmtools
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Submitting a NONMEM job" icon="seti:bicep">
+		<a href="/guides/submit">A brief intro into submitting NONMEM jobs with slurmtools</a>
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Monitoring NONMEM jobs" icon="magnifier">
+		<a href="/guides/template">A brief intro into monitoring NONMEM jobs with slurmtools</a>
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Writing a template file" icon="seti:mustache">
+		<a href="/guides/template">A brief intro into customizing slurm job template files</a>
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Getting notifications" icon="information">
+		Update a template to get ntfy.sh alerts.
 	</Card>
+	<Card title = "Getting slacks" icon="slack">
+		get slack notifications
+	</Card>
+
 </CardGrid>
