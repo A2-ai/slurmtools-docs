@@ -2,7 +2,7 @@
 title: Getting started
 description: A guide for slurmtools.
 ---
-
+import { Card } from '@astrojs/starlight/components';
 
 ## Installing slurmtools
 
@@ -17,10 +17,13 @@ upon loading slurmtools you should receieve an onAttach message alerting you to 
 ```R
 library(slurmtools)
 ```
+<Card>
+── Needed slurmtools options ──────────────────────
 
-── Needed slurmtools options ──────────────────────────────
 <span style="color: red;">✖</span> option('slurmtools.slurm_job_template_path') is not set.  
 <span style="color: red;">✖</span> option('slurmtools.submission_root') is not set.  
 <span style="color: red;">✖</span> option('slurmtools.bbi_config_path') is not set.  
 <span style="color: blue;">ℹ</span> Please set all options for job submission defaults to work.
+</Card>
 
+This message should let you know that `slurmtools` will not work correctly as is.
