@@ -1,0 +1,26 @@
+---
+title: Getting started
+description: A guide for slurmtools.
+---
+
+
+## Installing slurmtools
+
+`slurmtools` can be installed with `pak`: 
+
+```R
+#install.packages("pak")
+pak::pkg_install("a2-ai/slurmtools")
+```
+
+upon loading slurmtools you should receieve an onAttach message alerting you to several options that are used with `slurmtools`.
+```R
+library(slurmtools)
+```
+
+── Needed slurmtools options ──────────────────────────────
+<span style="color: red;">✖</span> option('slurmtools.slurm_job_template_path') is not set.  
+<span style="color: red;">✖</span> option('slurmtools.submission_root') is not set.  
+<span style="color: red;">✖</span> option('slurmtools.bbi_config_path') is not set.  
+<span style="color: blue;">ℹ</span> Please set all options for job submission defaults to work.
+

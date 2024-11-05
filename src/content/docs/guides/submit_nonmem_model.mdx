@@ -1,0 +1,35 @@
+---
+title: How to submit a NONMEM job to slurm
+description: A guide for submit_nonmem_model.
+pagefind: true
+---
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+
+# Overview
+
+This guide describes how to submit a NONMEM job to slurm from R. To do this we will use the `submit_nonmem_model` function. 
+
+## Needed Files
+<CardGrid>
+<Card>
+<Code 
+code={
+`#!/bin/bash
+# Rest of template file
+`
+}
+lang="bash" title="slurm-job.tmpl"
+/>
+</Card>
+<Card>
+<Code 
+code={
+`$PROBLEM NM CONTROL STREAM
+; Rest of control stream
+`
+}
+lang="NONMEM" title="1001.mod"
+/>
+</Card>
+</CardGrid>
