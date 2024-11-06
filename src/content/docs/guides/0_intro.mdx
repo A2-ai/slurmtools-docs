@@ -3,8 +3,6 @@ title: Slurmtools User Guide
 description: A guide for slurmtools.
 ---
 
-import { Icon } from '@astrojs/starlight/components';
-import { Code } from  '@astrojs/starlight/components';
 import { Steps } from '@astrojs/starlight/components';
 
 Welcome to the `slurmtools` User Guide! `slurmtools` provides scientists with a user-friendly toolkit for seamless Slurm integration, making job submission, monitoring, and management a breeze. With its intuitive interface, you can customize job submissions through flexible template files, perfectly adapting `slurmtools` to your unique research workflows. As `slurmtools` is in active, early-stage development, be sure to visit our GitHub page frequently to stay up-to-date with the latest features and releases.
@@ -13,14 +11,14 @@ Welcome to the `slurmtools` User Guide! `slurmtools` provides scientists with a 
 
 At its core, `slurmtools` is a lightweight yet powerful package, designed to streamline your interactions with Slurm using simple slurm command wrappers. Here’s a quick overview of what you can do:
 <Steps>
-1. [submit_nonmem_model](/tutorials/submit_nonmem_model) - Easily submit jobs with this `sbatch` wrapper
-2. [get_slurm_jobs](/tutorials/get_slurm_partitions) - Get a summary of running jobs with this `squeue` wrapper
-3. [cancel_job](/tutorials/cancel_job) - Cancel a job with this `scancel` wrapper
-4. [get_slurm_partitions](/tutorials/get_slurm_partitions) - Get a list of available partitions with this `sinfo` wrapper
+1. [submit_nonmem_model](/guides/submit_nonmem_model) - Easily submit jobs with this `sbatch` wrapper
+2. [get_slurm_jobs](/guides/get_slurm_partitions) - Get a summary of running jobs with this `squeue` wrapper
+3. [cancel_job](/guides/cancel_job) - Cancel a job with this `scancel` wrapper
+4. [get_slurm_partitions](/guides/get_slurm_partitions) - Get a list of available partitions with this `sinfo` wrapper
 </Steps>
 and a helper function:
 <Steps>
-5. [generate_nmm_config](/tutorials/generate_nmm_config) - which helps setup [nmm](https://github.com/a2-ai/nonmem-monitor)
+5. [generate_nmm_config](/guides/generate_nmm_config) - which helps setup [nmm](https://github.com/a2-ai/nonmem-monitor) - a NONMEM monitor tool
 </Steps>
 
-Ready to dive into `slurmtools`? Head over to the [getting started guide](/tutorials/1_getting_started) to get setup using `slurmtools` or check out our function-specific guides for detailed insights and advanced tips!
+Ready to dive into `slurmtools`? Head over to the [getting started guide](/guides/1_getting_started) to get setup using `slurmtools` or check out our function-specific guides for detailed insights and advanced tips!
