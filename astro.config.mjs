@@ -10,6 +10,9 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/A2-ai/slurmtools',
 			},
+			//logo: {
+			//	src: './src/assets/slurmtools.png',
+			//},
 			sidebar: [
 				{
 				  label: 'User Guide',
@@ -22,7 +25,7 @@ export default defineConfig({
 						label: 'Submitting a job',
 						collapsed: true,
 						items: [
-						  { label: 'How to submit a NONMEM job to slurm', slug: 'guides/submit_nonmem_model' }, 
+						  { label: 'How to submit a NONMEM job to slurm', slug: 'guides/submit_nonmem_model' },
 						  { label: 'How to see available partitions', slug: 'guides/get_slurm_partitions' },
 						  // This should go in a separate section about nmm I think
 						  { label: 'How to generate a nmm config file', slug: 'guides/generate_nmm_config' },
@@ -71,7 +74,7 @@ export default defineConfig({
 				  collapsed: true,
 				  items: [
 					  { label: "Package site", link: 'https://a2-ai.github.io/slurmtools/' },
-					  { label: "submit_nonmem_model", link: 'https://a2-ai.github.io/slurmtools/reference/submit_nonmem_model.html' },
+					  { label: "submit_nonmem_model", slug: 'reference/submit_nonmem_model_reference' },
 					  { label: "get_slurm_partitions", link: 'https://a2-ai.github.io/slurmtools/reference/get_slurm_partitions.html' },
 					  { label: "generate_nmm_config", link: 'https://a2-ai.github.io/slurmtools/reference/generate_nmm_config.html' }, 
 					  { label: "get_slurm_jobs", link: 'https://a2-ai.github.io/slurmtools/reference/get_slurm_jobs.html' },
