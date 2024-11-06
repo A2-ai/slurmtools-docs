@@ -13,16 +13,16 @@ By default, `submit_nonmem_model` uses the smallest partition available to you. 
 
 #### Using higher memory `partition`
 
-import submit_code_part from './src/submit_partition.R?raw';
+import submit_code_part from '/src/submit_partition.R?raw';
 
-<Code title="submit_job.R" lang="R" code={submit_code_part} />
+<Code title="submit_job.R" lang="r" code={submit_code_part} />
 
 #### Using more cores `ncpu`
 You can set `ncpu` to any number less than or equal to the number of cores on your partition. If we are using a `cpu16mem128gb` partition `ncpu` can be 1 to 16.
 
-import submit_code_ncpu from './src/submit_ncpu.R?raw';
+import submit_code_ncpu from '/src/submit_ncpu.R?raw';
 
-<Code title="submit_job.R" lang="R" code={submit_code_ncpu} />
+<Code title="submit_job.R" lang="r" code={submit_code_ncpu} />
 
 <Aside type="caution">
   Setting `ncpu` to a number higher than the partition allows will give you an error with a note of suggested partitions:
@@ -40,16 +40,16 @@ import submit_code_ncpu from './src/submit_ncpu.R?raw';
 ### Using the `overwrite` Argument
 By default, `submit_nonmem_model` will not overwrite and existing previously run model. This can be altered by setting the `overwrite` argument to `TRUE`
 
-import submit_code from './src/submit_overwrite.R?raw';
+import submit_code from '/src/submit_overwrite.R?raw';
 
-<Code title="submit_job.R" lang="R" code={submit_code} />
+<Code title="submit_job.R" lang="r" code={submit_code} />
 
 ### Using the `dry_run` Argument
 This allows you to fill in the template and see what would be called if dry_run was not `TRUE`
 
-import submit_code_dry from './src/submit_dry.R?raw';
+import submit_code_dry from '/src/submit_dry.R?raw';
 
-<Code title="submit_job.R" lang="R" code={submit_code_dry} />
+<Code title="submit_job.R" lang="r" code={submit_code_dry} />
 This gives the following output
 ```r
 $cmd
@@ -71,16 +71,16 @@ Which you can use to inspect your template script for completeness and errors.
 By default, `submit_nonmem_model` uses `getOption('slurmtools.slurm_job_template_path')` for the path to the template file (see [Getting Started Guide](guides/1_getting_started) if you're unfamiliar with the `slurmtools` options).
 If you are working with different templates for different models, or trying out a new template for new features (see [guide on expanding templates](/blogs/writing_templates)) then you can update this argument to point to a template file:
 
-import submit_code_path from './src/submit_path.R?raw';
+import submit_code_path from '/src/submit_path.R?raw';
 
-<Code title="submit_job.R" lang="R" code={submit_code_path}/>
+<Code title="submit_job.R" lang="r" code={submit_code_path}/>
 
 ### Using the `submission_root` Argument
 This directory is used to track submission scripts and output. It will be populated with the shell scripts created from filling in the template file when calling `submit_nonmem_model` and the stdout/stderr from the bash script. If you would like to set it and forget it use the `slurmtools` option `options('slurmtools.submission_root')` (see the [Getting Started Guide](/guides/1_getting_started) if you are unfamiliar with this option). If you'd like to set this at runtime simply provide the path to the directory you'd like to save the output to. 
 
-import submit_code_root from './src/submit_path.R?raw';
+import submit_code_root from '/src/submit_path.R?raw';
 
-<Code title="submit_job.R" lang="R" code={submit_code_root}/>
+<Code title="submit_job.R" lang="r" code={submit_code_root}/>
 
 <Aside type="note">
 If the directory does not exists, `submit_nonmem_model` will create it.
