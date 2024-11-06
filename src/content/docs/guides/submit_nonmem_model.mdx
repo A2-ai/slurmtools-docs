@@ -1,35 +1,56 @@
 ---
-title: How to submit a NONMEM job to slurm
+title: How to submit a NONMEM job to slurm with submit_nonmem_model
 description: A guide for submit_nonmem_model.
 pagefind: true
 ---
-import { Card, CardGrid } from '@astrojs/starlight/components';
-import { Code } from '@astrojs/starlight/components';
+import { Aside, Code, Steps } from '@astrojs/starlight/components';
 
-# Overview
+This guide describes how to submit a NONMEM job to slurm using the `submit_nonmem_model` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/guides/1_getting_started) to use slurmtools. If you have any  
 
-This guide describes how to submit a NONMEM job to slurm from R. To do this we will use the `submit_nonmem_model` function. 
+## Prerequisite Files and Programs
 
-## Needed Files
-<CardGrid>
-<Card>
-<Code 
-code={
-`#!/bin/bash
-# Rest of template file
-`
-}
-lang="bash" title="slurm-job.tmpl"
+To use `submit_nonmem_model` you need a few things set before hand
+<Steps>
+1. A  in [template file](/guides/simple_template_file)
+2. All files needed to run NONMEM - control stream and data
+3. [`bbr`](https://github.com/metrumresearchgroup/bbr) installed in your R environment
+4. A way of running nonmem such as bbi or nmm
+</Steps>
+<Aside type="note">Depending on the complexity of your template file you might need additional information as well!</Aside> 
+
+Once these are set, you're ready to roll with your Slurm submission! 
+
+## Submitting a NONMEM job
+Here's the code you'll use to submit a job with submit_nonmem_model, this uses default values for all arguments, many of which are determined via the `slurmtools` options discussed [here](/guides/1_getting_started).
+
+import submit_code from '/src/submit.R?raw';
+
+<Code title="submit_job.R" lang="R" code = {submit_code} />
+
+With all prerequisites in place, running this code sends your NONMEM model to Slurm. Let’s look at what you can expect from the output.
+
+## Understanding the Output
+<Code
+title='OUTPUT' lang='R' 
+code='$status
+[1] 0
+
+$stdout
+[1] "Submitted batch job 436\n"
+
+$stderr
+[1] ""
+
+$timeout
+[1] FALSE'
 />
-</Card>
-<Card>
-<Code 
-code={
-`$PROBLEM NM CONTROL STREAM
-; Rest of control stream
-`
-}
-lang="fortran" title="1001.mod"
-/>
-</Card>
-</CardGrid>
+
+- **$status**: This shows an exit code of `0`, which means everything went smoothly.
+- **$stdout**: Here, you’ll see a message confirming your job submission, along with the job ID (e.g., 436).
+- **$stderr**: If all goes well, this should be empty.
+- **$timeout**: A `FALSE` value here means there was no timeout during the submission.
+
+<Aside type="tip"> A status code of 0 is what you want! It indicates there were no issues. </Aside>
+
+## Next Steps
+For more advanced usage: If you’re interested in learning how to use non-default arguments with submit_nonmem_model for more customized job submissions, please check out our [Advanced Job Submission Guide](/guides/submit_nonmem_model_advanced)
