@@ -3,6 +3,7 @@ title: Getting started
 description: A guide for slurmtools.
 ---
 import { Card } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
 
 ## Installing slurmtools
 
@@ -12,18 +13,45 @@ import { Card } from '@astrojs/starlight/components';
 #install.packages("pak")
 pak::pkg_install("a2-ai/slurmtools")
 ```
-
-upon loading slurmtools you should receieve an onAttach message alerting you to several options that are used with `slurmtools`.
+Once installed, load `slurmtools` with:
 ```R
 library(slurmtools)
 ```
-<Card>
-── Needed slurmtools options ──────────────────────
 
-<span style="color: red;">✖</span> option('slurmtools.slurm_job_template_path') is not set.  
-<span style="color: red;">✖</span> option('slurmtools.submission_root') is not set.  
-<span style="color: red;">✖</span> option('slurmtools.bbi_config_path') is not set.  
-<span style="color: blue;">ℹ</span> Please set all options for job submission defaults to work.
+When `slurmtools` loads, you'll see an onAttach message listing several options that can be set for convenience when submitting jobs:
+<Card>
+<span style="display: block;">── <strong>Needed slurmtools options</strong> ──────────────────────</span>
+<span style="display: block;"><span style="color: red;">✖</span> options('slurmtools.slurm_job_template_path') is not set.</span>
+<span style="display: block;"><span style="color: red;">✖</span> options('slurmtools.submission_root') is not set.</span>
+<span style="display: block;"><span style="color: red;">✖</span> options('slurmtools.bbi_config_path') is not set.</span>
+<span style="display: block;"><span style="color: blue;">ℹ</span> Please set all options for job submission defaults to work.</span>
 </Card>
 
-This message should let you know that `slurmtools` will not work correctly as is.
+
+These options are used in submit_nonmem_model and help slurmtools locate specific files and directories for job submissions. While the message suggests that these options are _necessary_, they primarily save time by avoiding repeated typing when submitting multiple jobs. Here's what each option should be set to:
+
+<Steps>
+1. `options('slurmtools.slum_job_template_path')` - the [template file](/blogs/writing_templates) that will be populated for submitting jobs
+2. `options('slurmtools.submission_root')` - the path to the directory where slurm jobs are submitted from
+3. `options('slurmtools.bbi_config_path')` - the path of the bbi.yaml config file 
+</Steps>
+
+If you set these options before loading `slurmtools`, you’ll see a confirmation message:
+<Card>
+<span style="display: block;">── <strong>Set slurmtools options</strong> ─────────────────────────</span>
+<span style="display: block;"><span style="color: green;">✔</span> slurmtools.slurm_jon_template_path: nonmem/slurm-job.tmpl</span> 
+<span style="display: block;"><span style="color: green;">✔</span> slurmtools.submission_root: nonmem/submission-root/</span>
+<span style="display: block;"><span style="color: green;">✔</span> slurmtools.bbi_config_path: nonmem/bbi.yaml</span>
+</Card>
+
+If only some options are set, slurmtools will show which ones still need setting:
+<Card>
+<span style="display: block;">── <strong>Set slurmtools options</strong> ─────────────────────────</span>
+<span style="display: block;"><span style="color: green;">✔</span> slurmtools.slurm_jon_template_path: nonmem/slurm-job.tmpl</span>
+<span style="display: block;"><span style="color: green;">✔</span> slurmtools.submission_root: nonmem/submission-root/</span>
+<span style="display: block;">── <strong>Needed slurmtools options</strong> ───────────────────────</span>
+<span style="display: block;"><span style="color: red;">✖</span> options('slurmtools.bbi_config_path') is not set.</span>
+<span style="display: block;"><span style="color: blue;">ℹ</span> Please set all options for job submission defaults to work.</span>
+</Card>
+
+With these options set (or if you're aware of their use), you're all set to work with `slurmtools`!
