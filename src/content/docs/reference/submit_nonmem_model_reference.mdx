@@ -85,7 +85,14 @@ import submit_code_root from '/src/submit_path.R?raw';
 <Aside type="note">
 If the directory does not exists, `submit_nonmem_model` will create it.
 </Aside>
-### Using the `bbi_config_path` Argument
 
+### Using the `bbi_config_path` Argument
+If you are using [`bbi`](https://github.com/metrumresearchgroup/bbi) to submit nonmem jobs this specifies the path to the bbi config file `bbi.yaml`. By default, `submit_nonmem_model` uses the `slurmtools` option `options('slurmtools.bbi_config_path)` (see the [Getting Started Guide](/guides/1_getting_started) if you are unfamiliar with this option). If you would like to use a different configuration for `bbi` you can specify the path to a new config file and use that.
+
+import submit_code_bbi from '/src/submit_bbi.R?raw';
+
+<Code title='submit_job.R' lang='r' code={submit_code_bbi}/>
 
 ### Using the `slurm_template_opts` Argument
+
+If your template file needs additional arguments `slurm_template_opts` is how to inject them. This argument is a named list of argument, value pairs. If you need to supply an email address for notifications you can set this argument to `list('email' = 'matthews@a2-ai.com')`
