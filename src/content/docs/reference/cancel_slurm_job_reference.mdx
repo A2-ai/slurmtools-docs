@@ -1,0 +1,24 @@
+---
+title: submit_nonmem_model Reference
+description: A guide for submit_nonmem_model.
+pagefind: true
+---
+
+import { Aside, Code } from '@astrojs/starlight/components';
+
+This guide assumes you are familiar with cancelling NONMEM jobs using the [default arguments](/guides/cancel_slurm_job), and are looking for more control over you job submission. We'll cover each argument to `cancel_slurm_job` and overriding the default.
+
+### Using the `confirm` argument
+<Aside type='danger'>
+This argument allows you to automatically cancel jobs without confirming
+</Aside>
+
+By default, `cancel_slurm_job` makes you confirm the cancellation before the job is cancelled. With `confirm = FALSE` you can electively turn off this confirmation and cancel the job.
+
+import cancel_other_confirm from '/src/cancel_job_confirm.R?raw'
+
+<Code title="cancel_job.R" lang="r" code={cancel_other_confirm} />
+
+```{r}
+>
+```

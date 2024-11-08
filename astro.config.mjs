@@ -45,7 +45,7 @@ export default defineConfig({
 						label: "Stopping a job",
 						collapsed: true,
 						items: [
-							{label: 'How to cancel a job', slug: 'guides/cancel_job'},
+							{label: 'How to cancel a job', slug: 'guides/cancel_slurm_job'},
 						],
 					},
 					// Introduce expanding job templates
@@ -77,7 +77,7 @@ export default defineConfig({
 					  { label: "Package site", link: 'https://a2-ai.github.io/slurmtools/' },
 					  { label: "submit_nonmem_model", slug: 'reference/submit_nonmem_model_reference' },
 					  { label: "generate_nmm_config", link: 'https://a2-ai.github.io/slurmtools/reference/generate_nmm_config.html' }, 
-					  { label: "cancel_job", link: 'https://a2-ai.github.io/slurmtools/reference/cancel_job.html' },
+					  { label: "cancel_slurm_job", slug: 'reference/cancel_slurm_job_reference' },
 				  ],
 				},
 			  ],
