@@ -32,7 +32,7 @@ export default defineConfig({
 					  },
 					// introduce monitoring functionality  
 					{ 
-						label: 'Monitoring submitted jobs', 
+						label: 'Monitoring a job', 
 						collapsed: true,
 						items: [
 							{label: 'How to see submitted jobs', slug: 'guides/get_slurm_jobs' },
@@ -48,10 +48,11 @@ export default defineConfig({
 					},
 					// Introduce expanding job templates
 					{ 
-						label: 'Slurm Job Templates',
+						label: 'Config and template files',
 						collapsed: true,
 						items: [
-							{ label: 'How to create a template file', slug: 'guides/simple_template_file' },
+							{ label: 'Default values provided to template', slug: 'reference/values_provided_to_template' },
+							{ label: 'How to write a template file', slug: 'guides/simple_template_file' },
 							{ label: 'How to expand a template file', slug: 'guides/simple_notifications' },
 							{ label: 'How to generate a nmm config file', slug: 'guides/generate_nmm_config' },
 						],
