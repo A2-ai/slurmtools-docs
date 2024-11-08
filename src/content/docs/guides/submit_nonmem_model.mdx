@@ -5,7 +5,7 @@ pagefind: true
 ---
 import { Aside, Code, Steps } from '@astrojs/starlight/components';
 
-This guide describes how to submit a NONMEM job to slurm using the `submit_nonmem_model` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/guides/1_getting_started) to use slurmtools. If you have any  
+This guide describes how to submit a NONMEM job to slurm using the `submit_nonmem_model` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/guides/1_getting_started) to use slurmtools.
 
 ## Prerequisite Files and Programs
 
@@ -51,7 +51,7 @@ $timeout
 - **$stderr**: If all goes well, this should be empty.
 - **$timeout**: A `FALSE` value here means there was no timeout during the submission.
 
-<Aside type="tip"> A status code of 0 is what you want! It indicates there were no issues. </Aside>
+<Aside type="tip"path> A status code of 0 is what you want! It indicates there were no issues. </Aside>
 
 ## Next Steps
 For more advanced usage: If you’re interested in learning how to use non-default arguments with submit_nonmem_model for more customized job submissions, please check out our [`submit_nonmem_model` Reference Guide](/reference/submit_nonmem_model_reference)
