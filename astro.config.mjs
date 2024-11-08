@@ -51,7 +51,6 @@ export default defineConfig({
 						label: 'Config and template files',
 						collapsed: true,
 						items: [
-							{ label: 'Default values provided to template', slug: 'reference/values_provided_to_template' },
 							{ label: 'How to write a template file', slug: 'guides/simple_template_file' },
 							{ label: 'How to expand a template file', slug: 'guides/simple_notifications' },
 							{ label: 'How to generate a nmm config file', slug: 'guides/generate_nmm_config' },
@@ -74,6 +73,7 @@ export default defineConfig({
 					  { label: "submit_slurm_job", slug: 'reference/submit_slurm_job_reference' },
 					  { label: "cancel_slurm_job", slug: 'reference/cancel_slurm_job_reference' },
 					  { label: "generate_nmm_config", link: 'reference/generate_nmm_config_reference' }, 
+					  { label: 'Default values provided to template', slug: 'reference/values_provided_to_template' },
 				  ],
 				},
 			  ],

@@ -4,3 +4,49 @@ description: A guide for submit_slurm_job.
 pagefind: true
 ---
 
+import { Aside, Code } from '@astrojs/starlight/components';
+
+When calling `submit_slurm_job(mod)` the template file supplied through [`slurmtools` options](/guides/1_getting_started#slurmtools-options), or the [`slurm_job_template_path` argument](/reference/submit_slurm_job_reference#using-the-slurm_job_template_path-argument) is populated and submitted to slurm as a bash job.  This setup offers extensive customization options through `slurmtools`, allowing you to adapt job configurations to suit your specific needs.
+
+
+
+## Simple template file
+Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`bbi`](https://github.com/metrumresearchgroup/bbi). 
+
+import tmpl from '/src/code/simple-template.tmpl?raw';
+
+<Code title='slurm-job.tmpl' lang='bash' code={tmpl}/>
+
+The template file uses the [whisker package](https://github.com/edwindj/whisker?tab=readme-ov-file) to fill in variables according to the [Mustache templating standard](https://mustache.github.io). When `submit_slurm_job` is called, it reads the template file and injects both the [default values provided to the template](/reference/values_provided_to_template) and any values passed in via the [`slurm_template_opts` argument](/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument). Variables in the template file are denoted with double curly brackets, such as `{{ injected_variable }}`, and these placeholders are replaced with the respective values when submit_slurm_job runs.
+
+<Aside type="note"> 
+If a variable in the template file is not supplied to `submit_slurm_job`, it will remain blank in the final output. 
+</Aside>
+
+Here’s an example of a filled-in template file after calling submit_slurm_job(mod):
+
+import filled_tmpl from '/src/code/filled-simple-template.sh?raw';
+
+<Code title='1001.sh' lang='bash' code={filled_tmpl}/>
+
+## Understanding the tempalte file
+
+This template file contains many aspects, the top 6 lines (starting with `$SBATCH --<option>`) define the slurm options for the job. next, there are two ;logical blocks:
+```
+{{#parallel}}
+<parallel code>
+{{/parallel}}
+```
+This block executes the `<parallel code>` if `parallel == TRUE`. The next block:
+```
+{{^parallel}}
+<not parallel code>
+{{/parallel}}
+```
+executes is `parallel == FALSE`.
+
+This logic allows for versatile control flow, enabling you to build more complex template files to fit various job requirements.
+
+<Aside type='tip'>
+The filled-in template file is executed as a bash script, so anything you can run in a bash environment is possible with `submit_slurm_job`! You’re limited only by your creativity!
+</Aside>
