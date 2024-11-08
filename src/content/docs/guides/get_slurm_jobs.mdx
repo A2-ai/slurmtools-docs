@@ -1,13 +1,47 @@
 ---
-title: Monitoring NONMEM models on slurm
+title: How to see submitted jobs
 description: A guide for get_slurm_jobs.
 pagefind: true
 ---
 
-# Overview
+import { Aside, Code, Steps } from '@astrojs/starlight/components';
 
-This function gets a table of slurm jobs. It is a glorified wrapper around `squeue`
+This guide describes how to view jobs submitted to slurm using the `get_slurm_jobs` function.
 
-## nitty gritty
+## Prerequisites
+<Steps>
+1. Submit a job to slurm (see [How to submit a NONMEM job to slurm](/guides/submit_nonmem_model))
+</Steps>
 
-some detailed description of how this works
+## Viewing slurm jobs
+
+Here's the code you'll use to view slurm jobs currently running
+
+import view_jobs from '/src/view_jobs.R?raw';
+
+<Code title="view_partitions.R" lang="r" code={view_jobs}/>
+
+This will return a tibble where each row corresponds to a job and the columns give information about the jobs. 
+```
+# A tibble: 3 × 12
+  job_id partition  user_name job_state    time      cpus  standard_input standard_output                                                    submit_time          start_time           end_time             current_working_directory                        
+   <int> <chr>      <chr>     <chr>        <time>    <int> <chr>          <chr>                                                              <dttm>               <dttm>               <dttm>               <chr>                                            
+1    152 cpu2mem4gb user_x    RUNNING      140:35:25     1 /dev/null      /cluster-data/user-homes/user_x/.local/share/rstudio/launcher/     2024-11-02 18:39:23  2024-11-02 18:44:37  2025-11-02 18:44:37  /cluster-data/user-homes/user_x                     
+2    265 cpu2mem4gb user_y    CONFIGURING   01:13:01     1 /dev/null      /cluster-data/user-homes/user_y/Packages/slurmtools/slurm-265.out  2024-11-04 17:08:24  2024-11-04 17:08:24  2024-11-04 18:21:25  /cluster-data/user-homes/user_y/Packages/slurm…
+3    329 cpu2mem4gb user_z    CANCELLED     00:19:56     1 /dev/null      /cluster-data/user-homes/user_z/Packages/slurmtools/slurm-329.out  2024-11-04 19:39:34  2024-11-04 19:39:34  2024-11-04 19:59:30  /cluster-data/user-homes/user_z/Packages/slurm…
+```
+## Viewing user specific jobs
+
+If you only want to see the jobs associated with `user_y` you can supply this via the `user` argument to filter the tibble to only rows with that user.
+
+import view_jobs_user from '/src/view_jobs_user.R?raw';
+
+<Code title="view_partitions.R" lang="r" code={view_jobs_user}/>
+
+```
+# A tibble: 1 × 12
+  job_id partition  user_name job_state    time      cpus  standard_input standard_output                                                    submit_time          start_time           end_time             current_working_directory                        
+   <int> <chr>      <chr>     <chr>        <time>    <int> <chr>          <chr>                                                              <dttm>               <dttm>               <dttm>               <chr>                                                 
+1    265 cpu2mem4gb user_y    CONFIGURING   01:13:01     1 /dev/null      /cluster-data/user-homes/user_y/Packages/slurmtools/slurm-265.out  2024-11-04 17:08:24  2024-11-04 17:08:24  2024-11-04 18:21:25  /cluster-data/user-homes/user_y/Packages/slurm…
+```
+
