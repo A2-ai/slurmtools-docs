@@ -26,10 +26,8 @@ export default defineConfig({
 						label: 'Submitting a job',
 						collapsed: true,
 						items: [
-						  { label: 'How to submit a NONMEM job to slurm', slug: 'guides/submit_nonmem_model' },
+						  { label: 'How to submit a NONMEM job to slurm', slug: 'guides/submit_slurm_job' },
 						  { label: 'How to see available partitions', slug: 'guides/get_slurm_partitions' },
-						  // This should go in a separate section about nmm I think
-						  { label: 'How to generate a nmm config file', slug: 'guides/generate_nmm_config' },
 						],
 					  },
 					// introduce monitoring functionality  
@@ -55,6 +53,7 @@ export default defineConfig({
 						items: [
 							{ label: 'How to create a template file', slug: 'guides/simple_template_file' },
 							{ label: 'How to expand a template file', slug: 'guides/simple_notifications' },
+							{ label: 'How to generate a nmm config file', slug: 'guides/generate_nmm_config' },
 						],
 					},
 				  ],
@@ -66,16 +65,12 @@ export default defineConfig({
 					{ label: 'Deciding which partition to use', slug: 'blogs/submit' },
 				  ]
 				},
-				//{
-				//  label: 'Examples',
-				//  autogenerate: { directory: 'examples' },
-				//},
 				{
 				  label: 'Slurmtools Reference',
 				  collapsed: true,
 				  items: [
 					  { label: "Package site", link: 'https://a2-ai.github.io/slurmtools/' },
-					  { label: "submit_nonmem_model", slug: 'reference/submit_nonmem_model_reference' },
+					  { label: "submit_slurm_job", slug: 'reference/submit_slurm_job_reference' },
 					  { label: "generate_nmm_config", link: 'https://a2-ai.github.io/slurmtools/reference/generate_nmm_config.html' }, 
 					  { label: "cancel_slurm_job", slug: 'reference/cancel_slurm_job_reference' },
 				  ],

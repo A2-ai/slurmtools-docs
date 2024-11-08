@@ -1,15 +1,15 @@
 ---
-title: submit_nonmem_model Reference
-description: A guide for submit_nonmem_model.
+title: submit_slurm_job Reference
+description: A guide for submit_slurm_job.
 pagefind: true
 ---
 
 import { Aside, Code } from '@astrojs/starlight/components';
 
-This guide assumes you are familiar with submitting NONMEM jobs using the [default arguments](/guides/submit_nonmem_model), and are looking for more control over you job submission. We'll cover each argument to `submit_nonmem_model` and overriding the default. You should be able to combine any combination of arguments to suit your needs.
+This guide assumes you are familiar with submitting NONMEM jobs using the [default arguments](/guides/submit_slurm_job), and are looking for more control over you job submission. We'll cover each argument to `submit_slurm_job` and overriding the default. You should be able to combine any combination of arguments to suit your needs.
 
 ### Using the `partition` & `ncpu` Arguments
-By default, `submit_nonmem_model` uses the smallest partition available to you. This could be something like `cpu2mem4gb`. For models requiring more memory or CPUs, you can specify these arguments to better suit your needs. To view available partitions, refer to [get_slurm_partitions](/guides/get_slurm_partitions).
+By default, `submit_slurm_job` uses the smallest partition available to you. This could be something like `cpu2mem4gb`. For models requiring more memory or CPUs, you can specify these arguments to better suit your needs. To view available partitions, refer to [get_slurm_partitions](/guides/get_slurm_partitions).
 
 #### specifying a higher memory `partition`
 
@@ -28,7 +28,7 @@ import submit_code_ncpu from '/src/submit_ncpu.R?raw';
   Setting `ncpu` to a number higher than the partition allows will give you an error with a note of suggested partitions:
 
   ```r
-  > submission <- slurmtools::submit_nonmem_model(mod, ncpu = 13)
+  > submission <- slurmtools::submit_slurm_job(mod, ncpu = 13)
 
   Error in `check_slurm_partitions()`:
   ! number of requested CPUs (13) greater than number of available CPUs in cpu2mem4gb (2)
@@ -38,7 +38,7 @@ import submit_code_ncpu from '/src/submit_ncpu.R?raw';
 </Aside>
 
 ### Using the `overwrite` Argument
-By default, submit_nonmem_model will not overwrite previously run models. Set `overwrite = TRUE` to override this.
+By default, `submit_slurm_job` will not overwrite previously run models. Set `overwrite = TRUE` to override this.
 
 import submit_code from '/src/submit_overwrite.R?raw';
 
@@ -67,25 +67,25 @@ $partition
 ```
 
 ### Using the `slurm_job_template_path` Argument
-By default, `submit_nonmem_model` uses `getOption('slurmtools.slurm_job_template_path')` for the path to the template file (see [Getting Started Guide](guides/1_getting_started) if you're unfamiliar with the `slurmtools` options). You can update this argument to use a different template file as needed.
+By default, `submit_slurm_job` uses `getOption('slurmtools.slurm_job_template_path')` for the path to the template file (see [Getting Started Guide](guides/1_getting_started) if you're unfamiliar with the `slurmtools` options). You can update this argument to use a different template file as needed.
 
 import submit_code_path from '/src/submit_path.R?raw';
 
 <Code title="submit_job.R" lang="r" code={submit_code_path}/>
 
 ### Using the `submission_root` Argument
-This directory is used to track submission scripts and output. It will be populated with the shell scripts created from filling in the template file when calling `submit_nonmem_model` and the stdout/stderr from the bash script. If you would like to set it and forget it use the `slurmtools` option `options('slurmtools.submission_root')` (see the [Getting Started Guide](/guides/1_getting_started) if you are unfamiliar with this option). If you'd like to set this at runtime simply provide the path to the directory you'd like to save the output to. 
+This directory is used to track submission scripts and output. It will be populated with the shell scripts created from filling in the template file when calling `submit_slurm_job` and the stdout/stderr from the bash script. If you would like to set it and forget it use the `slurmtools` option `options('slurmtools.submission_root')` (see the [Getting Started Guide](/guides/1_getting_started) if you are unfamiliar with this option). If you'd like to set this at runtime simply provide the path to the directory you'd like to save the output to. 
 
 import submit_code_root from '/src/submit_path.R?raw';
 
 <Code title="submit_job.R" lang="r" code={submit_code_root}/>
 
 <Aside type="note">
-If the directory does not exists, `submit_nonmem_model` will create it.
+If the directory does not exists, `submit_slurm_job` will create it.
 </Aside>
 
 ### Using the `bbi_config_path` Argument
-If you are using [`bbi`](https://github.com/metrumresearchgroup/bbi) to submit nonmem jobs this specifies the path to the bbi config file `bbi.yaml`. By default, `submit_nonmem_model` uses the `slurmtools` option `options('slurmtools.bbi_config_path)` (see the [Getting Started Guide](/guides/1_getting_started) if you are unfamiliar with this option). If you would like to use a different configuration for `bbi` you can specify the path to a new config file and use that.
+If you are using [`bbi`](https://github.com/metrumresearchgroup/bbi) to submit nonmem jobs this specifies the path to the bbi config file `bbi.yaml`. By default, `submit_slurm_job` uses the `slurmtools` option `options('slurmtools.bbi_config_path)` (see the [Getting Started Guide](/guides/1_getting_started) if you are unfamiliar with this option). If you would like to use a different configuration for `bbi` you can specify the path to a new config file and use that.
 
 import submit_code_bbi from '/src/submit_bbi.R?raw';
 

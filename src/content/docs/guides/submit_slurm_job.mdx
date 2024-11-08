@@ -1,15 +1,15 @@
 ---
-title: How to submit a NONMEM job to slurm with submit_nonmem_model
-description: A guide for submit_nonmem_model.
+title: How to submit a NONMEM job to slurm with submit_slurm_job
+description: A guide for submit_slurm_job.
 pagefind: true
 ---
 import { Aside, Code, Steps } from '@astrojs/starlight/components';
 
-This guide describes how to submit a NONMEM job to slurm using the `submit_nonmem_model` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/guides/1_getting_started) to use slurmtools.
+This guide describes how to submit a NONMEM job to slurm using the `submit_slurm_job` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/guides/1_getting_started) to use slurmtools.
 
 ## Prerequisite files and programs
 
-To use `submit_nonmem_model` you need a few things set before hand
+To use `submit_slurm_job` you need a few things set before hand
 <Steps>
 1. A [template file](/guides/simple_template_file) ready to be populated
 2. All files needed to run NONMEM - control stream and data
@@ -21,7 +21,7 @@ To use `submit_nonmem_model` you need a few things set before hand
 Once these are set, you're ready to roll with your Slurm submission! 
 
 ## Submitting a NONMEM job
-Here's the code you'll use to submit a job with submit_nonmem_model, this uses default values for all arguments, many of which are determined via the `slurmtools` options discussed [here](/guides/1_getting_started).
+Here's the code you'll use to submit a job with `submit_slurm_job`, this uses default values for all arguments, many of which are determined via the `slurmtools` options discussed [here](/guides/1_getting_started).
 
 import submit_code from '/src/submit.R?raw';
 
@@ -29,7 +29,7 @@ import submit_code from '/src/submit.R?raw';
 
 With all prerequisites in place, running this code sends your NONMEM model to Slurm. Let’s look at what you can expect from the output.
 
-<Aside type="note">If you've already submitted the model, `submit_nonmem_model` by default will not overwrite and existing model. Check out [`submit_nonmem_model` Reference Guide](/reference/submit_nonmem_model_reference) for more details on the overwrite argument.</Aside>
+<Aside type="note">If you've already submitted the model, `submit_slurm_job` by default will not overwrite and existing model. Check out [`submit_slurm_job` Reference Guide](/reference/submit_slurm_job_reference) for more details on the overwrite argument.</Aside>
 
 ## Understanding the output
 ```r
@@ -54,4 +54,4 @@ $timeout
 <Aside type="tip"path> A status code of 0 is what you want! It indicates there were no issues. </Aside>
 
 ## Next Steps
-For more advanced usage: If you’re interested in learning how to use non-default arguments with submit_nonmem_model for more customized job submissions, please check out our [`submit_nonmem_model` Reference Guide](/reference/submit_nonmem_model_reference)
+For more advanced usage: If you’re interested in learning how to use non-default arguments with submit_slurm_job for more customized job submissions, please check out our [`submit_slurm_job` Reference Guide](/reference/submit_slurm_job_reference)
