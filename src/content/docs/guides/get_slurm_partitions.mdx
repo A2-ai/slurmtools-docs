@@ -4,9 +4,30 @@ description: A guide for get_slurm_partitions.
 pagefind: true
 ---
 
-# Overview
-This function shows you what partitions are available to work with.
+import { Aside, Code, Steps } from '@astrojs/starlight/components';
 
-## nitty gritty
 
-some detailed description of how this works, and how this relates to job submission
+This guide describes how to view available slurm partitions using the `get_slurm_partitions` function.
+
+## Prerequisite Files and Programs
+
+- **None**
+
+## Viewing slurm partitions
+
+Here's the code you'll use to view slurm partitions available to you
+
+import view_partitions from '/src/view_partitions.R?raw';
+
+<Code title="view_partitions.R" lang="r" code={view_partitions}/>
+
+This will return a list of all available partitions:
+```
+[1] "cpu2mem4gb"    "cpu4mem32gb"   "cpu8mem64gb"  
+[4] "cpu2mem8gb"    "cpu4mem16gb"   "cpu16mem128gb"
+[7] "cpu8mem32gb"   "cpu16mem64gb"  "cpu32mem128gb"
+```
+
+<Aside type='note'>
+`get_slurm_partitions` takes an optional `cache` argument which is a boolean to cache the partitions into an environment. This was used as a learning experience for cahcing and has no effect on the function.
+</Aside>
