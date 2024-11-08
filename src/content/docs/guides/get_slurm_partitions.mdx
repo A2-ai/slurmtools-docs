@@ -27,3 +27,7 @@ This will return a list of all available partitions:
 [4] "cpu2mem8gb"    "cpu4mem16gb"   "cpu16mem128gb"
 [7] "cpu8mem32gb"   "cpu16mem64gb"  "cpu32mem128gb"
 ```
+
+<Aside type='note'>
+`get_slurm_partitions` takes an optional `cache` argument which is a boolean to cache the partitions into an environment. This was used as a learning experience for cahcing and has no effect on the function.
+</Aside>
