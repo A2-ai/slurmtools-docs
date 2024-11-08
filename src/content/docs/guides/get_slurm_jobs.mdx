@@ -17,7 +17,7 @@ This guide describes how to view jobs submitted to slurm using the `get_slurm_jo
 
 Here's the code you'll use to view slurm jobs currently running
 
-import view_jobs from '/src/view_jobs.R?raw';
+import view_jobs from '/src/code/view_jobs.R?raw';
 
 <Code title="view_partitions.R" lang="r" code={view_jobs}/>
 
@@ -34,7 +34,7 @@ This will return a tibble where each row corresponds to a job and the columns gi
 
 If you only want to see the jobs associated with `user_y` you can supply this via the `user` argument to filter the tibble to only rows with that user.
 
-import view_jobs_user from '/src/view_jobs_user.R?raw';
+import view_jobs_user from '/src/code/view_jobs_user.R?raw';
 
 <Code title="view_partitions.R" lang="r" code={view_jobs_user}/>
 
