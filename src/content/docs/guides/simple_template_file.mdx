@@ -31,7 +31,7 @@ import filled_tmpl from '/src/code/filled-simple-template.sh?raw';
 
 ## Understanding the tempalte file
 
-This template file contains many aspects, the top 6 lines (starting with `$SBATCH --<option>`) define the slurm options for the job. next, there are two ;logical blocks:
+This template file contains many aspects, the top 6 lines (starting with `$SBATCH --<option>`) define the slurm options for the job. next, there are two logical blocks:
 ```
 {{#parallel}}
 <parallel code>
@@ -47,6 +47,10 @@ executes is `parallel == FALSE`.
 
 This logic allows for versatile control flow, enabling you to build more complex template files to fit various job requirements.
 
+## Next steps
+
 <Aside type='tip'>
 The filled-in template file is executed as a bash script, so anything you can run in a bash environment is possible with `submit_slurm_job`! You’re limited only by your creativity!
 </Aside>
+
+Let's add some [notifications](/blogs/simple_notifications) to our job submission so we can see when it's started and ended
