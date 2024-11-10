@@ -4,4 +4,35 @@ description: A guide for generate_nmm_config.
 pagefind: true
 ---
 
-This guide describes how to create a [NONMEMmonitor](https://github.com/a2-ai/nonmem-monitor) (`nmm`) configuration `toml` file using the `generate_nmm_config` function. `nmm` is a NONMEM job submitter, that uses `bbi` to submit jobs, but includes some additional monitoring 
+import { Aside, Code, Steps } from '@astrojs/starlight/components';
+
+This guide describes how to create a [NONMEMmonitor](https://github.com/a2-ai/nonmem-monitor) (`nmm`) configuration `toml` file using the `generate_nmm_config` function. 
+
+## Prerequisites
+<Steps>
+1. `nmm` installed
+2. [template file](guides/simple_template_file) that uses `nmm`
+</Steps>
+
+## Generating a `nmm` config
+Here's the code you'll use to generate a `config.toml` file.
+
+import generate_nmm from '/src/code/generate_nmm.R?raw';
+
+<Code lang='r' title='generate_nmm_config.R' code={generate_nmm}/>
+
+<Aside type='note'>
+To understand what the `watched_dir` and `output_dir` are doing, see the [`generate_nmm_config` reference guide](/reference/generate_nmm_config_reference)
+</Aside>
+
+This function call will generate a `1001.toml` file with the following contents
+<Code lang='toml' title='1001.toml' 
+code="model_number = '1001'
+watched_dir = '/cluster-data/user-homes/matthews/Packages/slurmtools/vignettes/model/nonmem'
+output_dir = '/cluster-data/user-homes/matthews/Packages/slurmtools/vignettes/model/nonmem/in_progress'"
+/>
+
+
+
+## Submitting a NONMEM job
+Here’s the code you’ll use to submit a job with submit_slurm_job, this uses default values for all arguments, many of which are determined via the slurmtools options discussed here.
