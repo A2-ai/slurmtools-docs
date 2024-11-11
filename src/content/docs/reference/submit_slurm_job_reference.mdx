@@ -8,7 +8,7 @@ import { Aside, Code } from '@astrojs/starlight/components';
 
 This guide assumes you are familiar with submitting NONMEM jobs using the [default arguments](/guides/submit_slurm_job), and are looking for more control over you job submission. We'll cover each argument to `submit_slurm_job` and overriding the default. You should be able to combine any combination of arguments to suit your needs.
 
-### Using the `partition` & `ncpu` Arguments
+### Using the `partition` & `ncpu` arguments
 By default, `submit_slurm_job` uses the smallest partition available to you. This could be something like `cpu2mem4gb`. For models requiring more memory or CPUs, you can specify these arguments to better suit your needs. To view available partitions, refer to [get_slurm_partitions](/guides/get_slurm_partitions).
 
 #### specifying a higher memory `partition`

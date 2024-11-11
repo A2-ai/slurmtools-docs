@@ -1,0 +1,8 @@
+#!/bin/bash 
+#SBATCH --job-name="{{job_name}}" 
+#SBATCH --nodes=1 
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task={{ncpu}} 
+#SBATCH --partition={{partition}}
+
+{{nmm_exe_path}} -c {{config_toml_path}} run

@@ -8,8 +8,6 @@ import { Aside, Code } from '@astrojs/starlight/components';
 
 When calling `submit_slurm_job(mod)` the template file supplied through [`slurmtools` options](/guides/1_getting_started#slurmtools-options), or the [`slurm_job_template_path` argument](/reference/submit_slurm_job_reference#using-the-slurm_job_template_path-argument) is populated and submitted to slurm as a bash job.  This setup offers extensive customization options through `slurmtools`, allowing you to adapt job configurations to suit your specific needs.
 
-
-
 ## Simple template file
 Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`bbi`](https://github.com/metrumresearchgroup/bbi). 
 
@@ -31,7 +29,7 @@ import filled_tmpl from '/src/code/filled-simple-template.sh?raw';
 
 ## Understanding the tempalte file
 
-This template file contains many aspects, the top 6 lines (starting with `$SBATCH --<option>`) define the slurm options for the job. next, there are two ;logical blocks:
+This template file contains many aspects, the top 6 lines (starting with `$SBATCH --<option>`) define the slurm options for the job. next, there are two logical blocks:
 ```
 {{#parallel}}
 <parallel code>
@@ -47,6 +45,10 @@ executes is `parallel == FALSE`.
 
 This logic allows for versatile control flow, enabling you to build more complex template files to fit various job requirements.
 
+## Next steps
+
 <Aside type='tip'>
 The filled-in template file is executed as a bash script, so anything you can run in a bash environment is possible with `submit_slurm_job`! You’re limited only by your creativity!
 </Aside>
+
+Let's add some [notifications](/blogs/simple_notifications) to our job submission so we can see when it's started and ended

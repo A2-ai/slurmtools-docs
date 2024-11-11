@@ -52,17 +52,19 @@ export default defineConfig({
 						collapsed: true,
 						items: [
 							{ label: 'How to write a template file', slug: 'guides/simple_template_file' },
-							{ label: 'How to expand a template file', slug: 'guides/simple_notifications' },
 							{ label: 'How to generate a nmm config file', slug: 'guides/generate_nmm_config' },
 						],
 					},
 				  ],
 				},
 				{
-				  label: 'Blogs',
+				  label: 'Beyond the basics',
 				  collapsed: true,
 				  items: [
-					{ label: 'Deciding which partition to use', slug: 'blogs/submit' },
+					{ label: 'Adding notifications for slurm job status', slug: 'blogs/simple_notifications' },
+					{ label: 'Slurm job template for using nmm', slug: 'blogs/nmm_template' },
+					{ label: 'Adding an alerter to nmm', slug: 'blogs/using_alerter_with_nmm' },
+					{ label: 'Deciding which partition to use', slug: 'blogs/partition_choice' },
 				  ]
 				},
 				{

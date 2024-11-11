@@ -1,0 +1,45 @@
+---
+title: Slurm job template for using nmm
+pagefind: true
+---
+
+import { Aside, Code, Steps } from '@astrojs/starlight/components';
+
+This guide describes how to create a template file that uses [`nmm`](https://github.com/a2-ai/nonmem-monitor)
+
+## Prerequisites
+<Steps>
+1. Familiarity with [`submit_slurm_job`](/guides/submit_slurm_job)
+2. Familiarity with [simple template files](guides/simple_template_file)
+</Steps>
+
+## nmm template file
+Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`nmm`](https://github.com/a2-ai/nonmem-monitor). 
+
+import tmpl from '/src/code/nmm-template.tmpl?raw';
+
+<Code title='slurm-job.tmpl' lang='bash' code={tmpl}/>
+
+The template file uses the [whisker package](https://github.com/edwindj/whisker?tab=readme-ov-file) to fill in variables according to the [Mustache templating standard](https://mustache.github.io). When `submit_slurm_job` is called, it reads the template file and injects both the [default values provided to the template](/reference/values_provided_to_template) and any values passed in via the [`slurm_template_opts` argument](/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument). Variables in the template file are denoted with double curly brackets, such as `{{ injected_variable }}`, and these placeholders are replaced with the respective values when submit_slurm_job runs.
+
+<Aside type="note"> 
+If a variable in the template file is not supplied to `submit_slurm_job`, it will remain blank in the final output. 
+</Aside>
+
+Here’s an example of a filled-in template file after calling submit_slurm_job(mod):
+
+import filled_tmpl from '/src/code/filled-nmm-template.sh?raw';
+
+<Code title='1001.sh' lang='bash' code={filled_tmpl}/>
+
+## Understanding the template file
+
+This template file only uses the `nmm` binary location and the NONMEM model config toml file. The toml file sets the configuration of the `nmm` and is explained in the [`generate_nmm_config` reference](/reference/generate_nmm_config_reference)
+
+## Next steps
+
+<Aside type='tip'>
+The filled-in template file is executed as a bash script, so anything you can run in a bash environment is possible with `submit_slurm_job`! You’re limited only by your creativity!
+</Aside>
+
+Let's add some [notifications](/blogs/simple_notifications) to our job submission so we can see when it's started and ended
