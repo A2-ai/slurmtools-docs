@@ -62,6 +62,8 @@ export default defineConfig({
 				  collapsed: true,
 				  items: [
 					{ label: 'Adding notifications for slurm job status', slug: 'blogs/simple_notifications' },
+					{ label: 'Slurm job template for using nmm', slug: 'blogs/nmm_template' },
+					{ label: 'Adding an alerter to nmm', slug: 'blogs/using_alerter_with_nmm' },
 					{ label: 'Deciding which partition to use', slug: 'blogs/partition_choice' },
 				  ]
 				},
