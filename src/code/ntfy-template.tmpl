@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH --job-name="{{job_name}}"
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task={{ncpu}}
+#SBATCH --partition={{partition}}
+#SBATCH --account={{project_name}}
+
+#{{project_path}}
+# submit_slurm_job uses the whisker package to populate template files
+# https://github.com/edwindj/whisker
+
+{{#ntfy}}
+curl -d "NONMEM job {{job_name}} is starting" ntfy.sh/{{mytopic}}
+{{/ntfy}}
+
+{{#parallel}}
+{{bbi_exe_path}} nonmem run local {{model_path}}.mod --parallel --threads={{ncpu}} --config {{bbi_config_path}}
+{{/parallel}}
+
+
+{{^parallel}}
+{{bbi_exe_path}} nonmem run local {{model_path}}.mod --config {{bbi_config_path}}
+{{/parallel}}
+
+{{#ntfy}}
+curl -d "NONMEM job {{job_name}} has finished" ntfy.sh/{{mytopic}}
+{{/ntfy}}
