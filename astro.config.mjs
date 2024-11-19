@@ -71,7 +71,7 @@ export default defineConfig({
 				  label: 'Slurmtools Reference',
 				  collapsed: true,
 				  items: [
-					  { label: "Package site", link: 'https://a2-ai.github.io/slurmtools/' },
+					  { label: "Package Repository", link: 'reference/package_repository' },
 					  { label: "submit_slurm_job", slug: 'reference/submit_slurm_job_reference' },
 					  { label: "cancel_slurm_job", slug: 'reference/cancel_slurm_job_reference' },
 					  { label: "generate_nmm_config", link: 'reference/generate_nmm_config_reference' }, 
