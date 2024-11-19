@@ -4,5 +4,6 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task={{ncpu}} 
 #SBATCH --partition={{partition}}
+#SBATCH --account={{project_name}}
 
 {{nmm_exe_path}} -c {{config_toml_path}} run

@@ -15,6 +15,8 @@ This guide will expand upon how to write a template file to incorporate [ntfy.sh
 2. Familiarity with [simple template files](guides/simple_template_file)
 </Steps>
 
+## ntfy.sh alerts
+
 We can start by adding a notification when the job starts and when it ends. Looking at the [ntfy.sh](https://ntfy.sh) website we can see:
 
 >Publishing messages can be done via PUT or POST. Topics are created on the fly by subscribing or publishing to them. If you use ntfy without sign-up, the topic is essentially a password, so pick something that's not easily guessable. If you purchase ntfy Pro, you can reserve topic names instead.
@@ -23,7 +25,7 @@ With the command to do this is:
 ```
 curl -d "Backup successful 😀" ntfy.sh/mytopic
 ```
-
+## Updating template file
 We can add this command to our template file to fire off before the nonmem job starts and immediately after it finishes. 
 
 import tmpl from '/src/code/ntfy-template.tmpl?raw';
@@ -36,6 +38,7 @@ import submit from '/src/code/ntfy-submit.R?raw';
 
 <Code title='ntfy-submit.R' lang='r' code={submit}/>
 
+## Job status alerts
 This sends off two messages to [ntfy.sh](https://ntfy.sh):
 
 ![](/src/assets/ntfy_sh.png)
