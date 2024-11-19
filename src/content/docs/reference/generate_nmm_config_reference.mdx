@@ -31,10 +31,22 @@ pagefind: true
   The number of cpus to use for the model. If you want parallel processing set this > 1.
 
 ### Using the `alerter_opts` argument
-  alerter_opts = list()
   A named list that accepts
    - alerter: string, path to binary to use for alerting
    - command: string, command to use with alerter
    - message_flag: string, flag to use for defining message, default is `m`
    - use_stdout: boolean, whether to capture standard out after initial call and use in subsequent calls
    - args: named list of additional arguments to be used with the alerter
+```
+alerter_opts = list(
+  alerter = "path/to/alerter/binary",
+  command = "notify_command",
+  message_flag = "s",
+  use_stdout = TRUE,
+  args = list(
+    email = "your_email@example.com",
+    config = "path/to/alerter/config.file"
+  )
+)
+```
+  
