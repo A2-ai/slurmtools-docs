@@ -4,7 +4,6 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://crispy-guacamole-2k6epe2.pages.github.io/',
 	integrations: [
 		starlight({
 			title: 'slurmtools',
