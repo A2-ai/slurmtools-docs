@@ -1,22 +1,20 @@
-# Starlight Starter Kit: Basics
+# Slurmtools Documentation
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
-npm create astro@latest -- --template starlight
-```
+Documentation for slurmtools, an R package designed to simplify the process of submitting and monitoring NONMEM jobs on SLURM workload managers.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+## What is slurmtools?
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+At its core, `slurmtools` is a lightweight yet powerful package, designed to streamline your interactions with Slurm using simple slurm command wrappers. Here's a quick overview of what you can do:
 
-## 🚀 Project Structure
+1. submit_slurm_job - Easily submit jobs with this `sbatch` wrapper
+2. get_slurm_jobs - Get a summary of running jobs with this `squeue` wrapper
+3. cancel_slurm_job - Cancel a job with this `scancel` wrapper
+4. get_slurm_partitions - Get a list of available partitions with this `sinfo` wrapper
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
 
+## 🚀 Project Structuree
 ```
 .
 ├── public/
@@ -30,26 +28,22 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 ├── package.json
 └── tsconfig.json
 ```
-
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
+Documentation content is written in `.md` or `.mdx` files in the `src/content/docs/` directory. 
+Images and other assets can be found in `src/assets/`.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                | Action                                           |
+| :-------------------- | :----------------------------------------------- |
+| `npm install`         | Installs dependencies                            |
+| `npm run dev`         | Starts local dev server at `localhost:4321`      |
+| `npm run build`       | Build your production site to `./dist/`          |
+| `npm run preview`     | Preview your build locally, before deploying     |
 
-## 👀 Want to learn more?
+## Contributing
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Contributions to improve the documentation are welcome! Please feel free to:
+- Submit pull requests for content updates or corrections
+- Open issues for any errors or unclear sections
