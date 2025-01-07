@@ -4,6 +4,8 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	base: '/slurmtools-docs', // Add this line
+  	site: 'https://a2-ai.github.io',
 	integrations: [
 		starlight({
 			title: 'slurmtools',
