@@ -4,26 +4,26 @@ description: A guide for submit_slurm_job.
 pagefind: true
 ---
 
-import { Aside, Steps } from '@astrojs/starlight/components';
+import { Aside, Steps, Icon } from '@astrojs/starlight/components';
 
 When calling `submit_slurm_job` several values are passed to the template file to be inserted. This guide summarizes the default information provided to the template. Using default arguments to [`submit_slurm_job`](guides/submit_slurm_job) the following values are provided to the slurm template file:
 
 
 | Variable                | Default value                                                                                                   |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------|
-| **`partition`**         | [`submit_slurm_job` argument](/reference/submit_slurm_job_reference#specifying-a-higher-memory-partition)       |
+| **`partition`**         | [`submit_slurm_job` argument](/slurmtools-docs/reference/submit_slurm_job_reference#specifying-a-higher-memory-partition)       |
 | **`parallel`**          | `TRUE` if `ncpu > 1`, otherwise `FALSE`                                                                         | 
-| **`ncpu`**              | [`submit_slurm_job` argument](/reference/submit_slurm_job_reference#using-more-cores-with-ncpu)                 | 
+| **`ncpu`**              | [`submit_slurm_job` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-more-cores-with-ncpu)                 | 
 | **`job_name`**          | `sprintf("%s-nonmem-run", basename(.mod$absolute_model_path))`                                                  |
 | **`project_path`**      | `here::here()`                                                                                                  | 
 | **`project_name`**      | `here::here() %>% basename()`                                                                                   | 
 | **`bbi_exe_path`**      | `Sys.which("bbi")`                                                                                              | 
 | **`bbi_config_path`**   | `getOption("slurmtools.bbi_config_path")`                                                                       | 
 | **`model_path`**        | `.mod$absolute_model_path`                                                                                      | 
-| **`config_toml_path`**  | `paste0(.mod$absolute_model_path, ".toml")` required for using [`nmm`](https://github.com/a2-ai/nonmem-monitor) |
+| **`config_toml_path`**  | `paste0(.mod$absolute_model_path, ".toml")` required for using [`nmm`](https://github.com/a2-ai/nonmem-monitor)<Icon name='external'/> |
 | **`nmm_exe_path`**      | `Sys.which("nmm")`                                                                                              | 
 
 
 <Aside type="note">
-If you need to feed more arguments to the template you simply supply them in the [`slurm_template_opts` argument](/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument).
+If you need to feed more arguments to the template you simply supply them in the [`slurm_template_opts` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument).
 </Aside>

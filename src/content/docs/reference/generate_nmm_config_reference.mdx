@@ -5,30 +5,37 @@ pagefind: true
 ---
 
 ### Using the `model_number` argument
-  This argument is a string of the model number. The default is `NULL` and this information is pulled from the `.mod` argument.
+  This argument is a string of the model number. The default is `NULL` and this information is pulled from the `.mod` argument
 
 ### Using the `files_to_track` argument
-  This argument sets which NONMEM files to watch for changes. Default is `NULL` which will cause `nmm` to track `c(".ext", ".lst", ".grd")` files. You can currently set to any NONMEM output file.
+  This argument sets which NONMEM files to watch for changes. Default is `NULL` which will cause `nmm` to track `c(".ext", ".lst", ".grd")` files. You can currently set to any NONMEM output file
 
 ### Using the `tmp_dir` argument
-  This argument is not currently used by `nmm`, but will be in the future.
+  This argument is not currently used by `nmm`, but will be in the future
 
 ### Using the `watched_dir` argument
   watched_dir = file.path("model", "nonmem")
-  This argument sets where `nmm` will look for model output folders to monitor NONMEM output files, The default will set this to `here::here()/model/nonmem/<model number>`, but this is specific to our internal A2-Ai directory structure.
+  This argument sets where `nmm` will look for model output folders to monitor NONMEM output files, The default will set this to `here::here()/model/nonmem/<model number>`, but this is specific to our internal A2-Ai directory structure
 
 ### Using the `output_dir` argument
   output_dir = file.path(watched_dir, "in_progress")
   This argument sets where `nmm` will save the log file and output files it creates. The default is `here::here()/model/nonmem/in_progress'
   
+### Using the `bbi_config_path` argument
+  bbi_config_path = file.path("model", "nonmem", "bbi.yaml")
+  This argument sets where the bbi config file is. The default is `options('slurmtools.bbi_config_path)`
+
+### Using the `overwrite` argument
+  This sets whether to overwrite a previously run model
+
 ### Using the `poll_duration` argument
-  This argument sets how long before `nmm` polls the `watched_dir` for updates to the files. Default is `NULL` which will cause `nmm` to poll every second. This argument must be an integer > 1.
+  This argument sets how long before `nmm` polls the `watched_dir` for updates to the files. Default is `NULL` which will cause `nmm` to poll every second. This argument must be an integer > 1
 
 ### Using the `level` argument
   This sets the logging level for `nmm` options are `Trace`, `Debug`, `Info`, `Warn`, `Fatal` default is `Info`
 
 ### Using the `threads` argument
-  The number of cpus to use for the model. If you want parallel processing set this > 1.
+  The number of cpus to use for the model. If you want parallel processing set this > 1
 
 ### Using the `alerter_opts` argument
   A named list that accepts

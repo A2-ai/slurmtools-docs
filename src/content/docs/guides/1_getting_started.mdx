@@ -32,7 +32,7 @@ When `slurmtools` loads, you'll see an onAttach message listing several options 
 These options are used in `submit_slurm_job` and help slurmtools locate specific files and directories for job submissions. While the message suggests that these options are _necessary_, they primarily save time by avoiding repeated typing when submitting multiple jobs. Here's what each option should be set to:
 
 <Steps>
-1. `options('slurmtools.slum_job_template_path')` - the [template file](/guides/simple_template_file) that will be populated for submitting jobs
+1. `options('slurmtools.slum_job_template_path')` - the [template file](/slurmtools-docs/guides/simple_template_file) that will be populated for submitting jobs
 2. `options('slurmtools.submission_root')` - the path to the directory where slurm jobs are submitted from
 3. `options('slurmtools.bbi_config_path')` - the path of the bbi.yaml config file 
 </Steps>
