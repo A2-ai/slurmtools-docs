@@ -14,13 +14,13 @@ This guide describes how to create a template file that uses [`nmm`](https://git
 </Steps>
 
 ## nmm template file
-Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`nmm`](https://github.com/a2-ai/nonmem-monitor). 
+Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`nmm`](https://github.com/a2-ai/nonmem-monitor)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span>. 
 
 import tmpl from '/src/code/nmm-template.tmpl?raw';
 
 <Code title='slurm-job.tmpl' lang='bash' code={tmpl}/>
 
-The template file uses the [whisker package](https://github.com/edwindj/whisker?tab=readme-ov-file)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span> to fill in variables according to the [Mustache templating standard](https://mustache.github.io). When `submit_slurm_job` is called, it reads the template file and injects both the [default values provided to the template](/reference/values_provided_to_template) and any values passed in via the [`slurm_template_opts` argument](/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument). Variables in the template file are denoted with double curly brackets, such as `{{ injected_variable }}`, and these placeholders are replaced with the respective values when submit_slurm_job runs.
+The template file uses the [whisker package](https://github.com/edwindj/whisker?tab=readme-ov-file)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span> to fill in variables according to the [Mustache templating standard](https://mustache.github.io)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span>. When `submit_slurm_job` is called, it reads the template file and injects both the [default values provided to the template](/reference/values_provided_to_template) and any values passed in via the [`slurm_template_opts` argument](/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument). Variables in the template file are denoted with double curly brackets, such as `{{ injected_variable }}`, and these placeholders are replaced with the respective values when submit_slurm_job runs.
 
 <Aside type="note"> 
 If a variable in the template file is not supplied to `submit_slurm_job`, it will remain blank in the final output. 

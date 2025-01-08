@@ -20,8 +20,8 @@ export default defineConfig({
 				  label: 'User Guide',
 				  // introduce slurmtools and describe what it does
 				  items: [
-					{ label: 'Introduction', slug: 'guides/0_intro'},
-					{ label: 'Getting started', slug: 'guides/1_getting_started' },
+					{ label: 'Introduction', slug: 'guides/intro'},
+					{ label: 'Getting started', slug: 'guides/getting_started' },
 					// introduce submit functionality and how the tutorials work together
 					{
 						label: 'Submitting a job',

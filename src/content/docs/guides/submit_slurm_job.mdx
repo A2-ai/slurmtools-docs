@@ -5,7 +5,7 @@ pagefind: true
 ---
 import { Aside, Code, Steps, Icon } from '@astrojs/starlight/components';
 
-This guide describes how to submit a NONMEM job to slurm using the `submit_slurm_job` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/slurmtools-docs/guides/1_getting_started) to use slurmtools.
+This guide describes how to submit a NONMEM job to slurm using the `submit_slurm_job` function. First, make sure you have loaded `slurmtools` and are familiar with the [needed options](/slurmtools-docs/guides/getting_started) to use slurmtools.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ To use `submit_slurm_job` you need a few things set before hand
 Once these are set, you're ready to roll with your Slurm submission! 
 
 ## Submitting a NONMEM job
-Here's the code you'll use to submit a job with `submit_slurm_job`, this uses default values for all arguments, many of which are determined via the `slurmtools` options discussed [here](/slurmtools-docs/guides/1_getting_started).
+Here's the code you'll use to submit a job with `submit_slurm_job`, this uses default values for all arguments, many of which are determined via the `slurmtools` options discussed [here](/slurmtools-docs/guides/getting_started).
 
 import submit_code from '/src/code/submit.R?raw';
 
