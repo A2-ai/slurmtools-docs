@@ -6,16 +6,17 @@ pagefind: true
 
 import { Aside, Code, Icon } from '@astrojs/starlight/components';
 
-When calling `submit_slurm_job(mod)` the template file supplied through [`slurmtools` options](/slurmtools-docs/guides/1_getting_started#slurmtools-options), or the [`slurm_job_template_path` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-the-slurm_job_template_path-argument) is populated and submitted to slurm as a bash job.  This setup offers extensive customization options through `slurmtools`, allowing you to adapt job configurations to suit your specific needs.
+When calling `submit_slurm_job(mod)` the template file supplied through [`slurmtools` options](/slurmtools-docs/guides/1_getting_started#slurmtools-options), or the [`slurm_job_template_path` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-the-slurm_job_template_path-argument) is populated and submitted to slurm as a bash job. This setup offers extensive customization options through `slurmtools`, allowing you to adapt job configurations to suit your specific needs.
 
 ## Simple template file
-Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`bbi`](https://github.com/metrumresearchgroup/bbi) <Icon name='external'/>. 
+
+Below is a simple template file that can be used to submit NONMEM jobs to slurm with [`bbi`](https://github.com/metrumresearchgroup/bbi) <span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span>.
 
 import tmpl from '/src/code/simple-template.tmpl?raw';
 
 <Code title='slurm-job.tmpl' lang='bash' code={tmpl}/>
 
-The template file uses the [whisker package](https://github.com/edwindj/whisker?tab=readme-ov-file)<Icon name='external'/> to fill in variables according to the [Mustache templating standard](https://mustache.github.io)<Icon name='external'/>. When `submit_slurm_job` is called, it reads the template file and injects both the [default values provided to the template](/slurmtools-docs/reference/values_provided_to_template) and any values passed in via the [`slurm_template_opts` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument). Variables in the template file are denoted with double curly brackets, such as `{{ injected_variable }}`, and these placeholders are replaced with the respective values when submit_slurm_job runs.
+The template file uses the [whisker package](https://github.com/edwindj/whisker?tab=readme-ov-file)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span> to fill in variables according to the [Mustache templating standard](https://mustache.github.io)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span>. When `submit_slurm_job` is called, it reads the template file and injects both the [default values provided to the template](/slurmtools-docs/reference/values_provided_to_template) and any values passed in via the [`slurm_template_opts` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument). Variables in the template file are denoted with double curly brackets, such as `{{ injected_variable }}`, and these placeholders are replaced with the respective values when submit_slurm_job runs.
 
 <Aside type="note"> 
 If a variable in the template file is not supplied to `submit_slurm_job`, it will remain blank in the final output. 

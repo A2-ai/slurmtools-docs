@@ -3,26 +3,26 @@ title: Adding an alerter to nmm
 pagefind: true
 ---
 
-import { Aside, Code, Steps } from '@astrojs/starlight/components';
+import { Aside, Code, Steps, Icon } from '@astrojs/starlight/components';
 
-[`nmm`](https://github.com/a2-ai/nonmem-monitor) offers additional notification features over `bbi`. You can get messages about parameters or gradients hitting zero. `nmm` will log these messages, but you can also point `nmm` to a program that can send messages. We'll start by using `curl` and sending these messages to [ntfy.sh](https://ntfy.sh).
+[`nmm`](https://github.com/a2-ai/nonmem-monitor)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span> offers additional notification features over `bbi`. You can get messages about parameters or gradients hitting zero. `nmm` will log these messages, but you can also point `nmm` to a program that can send messages. We'll start by using `curl` and sending these messages to [ntfy.sh](https://ntfy.sh)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span>.
 
 ## Prerequisites
 <Steps>
 1. `nmm` installed
-1. Familiarity with [generating `nmm` config files](/guides/generate_nmm_config)
-1. Familiarity with [using ntfy.sh for alerts](/blogs/simple_notifications)
+1. Familiarity with [generating `nmm` config files](/slurmtools-docs/guides/generate_nmm_config)
+1. Familiarity with [using ntfy.sh for alerts](/slurmtools-docs/blogs/simple_notifications)
 </Steps>
 
 ## Updating `nmm` config with `alerter_opts`
 
-Because the alerter feature is built into `nmm` we only need to update the `nmm` config file and can use the same [`nmm` template file](/blogs/nmm_template) as before.
+Because the alerter feature is built into `nmm` we only need to update the `nmm` config file and can use the same [`nmm` template file](/slurmtools-docs/blogs/nmm_template) as before.
 
 import tmpl from '/src/code/nmm-template.tmpl?raw';
 
 <Code title='slurm-job.tmpl' lang='bash' code={tmpl}/>
 
-We'll make use of [`alerter_opts` argument](/reference/generate_nmm_config_reference#using-the-alerter_opts-argument) for adding an alerter to the `nmm` config file. To send a message to [ntfy.sh](https://ntfy.sh) we use the following command:
+We'll make use of [`alerter_opts` argument](/slurmtools-docs/reference/generate_nmm_config_reference#using-the-alerter_opts-argument) for adding an alerter to the `nmm` config file. To send a message to [ntfy.sh](https://ntfy.sh)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span> we use the following command:
 ```
 curl -d "Backup successful 😀" ntfy.sh/mytopic
 ```
@@ -30,7 +30,7 @@ curl -d "Backup successful 😀" ntfy.sh/mytopic
 ```
 {{alerter}} {{command}} -{{message_flag}} "<message from nmm>"
 ```
-`alerter` will be the path to the `curl` binary, the `command` will be `ntfy.sh/mytopic` and the `message_flag` will be `d` and nmm will inject various messages. We will supply this information in our call to [`generate_nmm_config`](/guides/generate_nmm_config).
+`alerter` will be the path to the `curl` binary, the `command` will be `ntfy.sh/mytopic` and the `message_flag` will be `d` and nmm will inject various messages. We will supply this information in our call to [`generate_nmm_config`](/slurmtools-docs/guides/generate_nmm_config).
 
 import generate_nmm from '/src/code/generate_nmm_alert.R?raw';
 
@@ -50,6 +50,6 @@ message_flag = 'd'"
 ## Alerts with `nmm`
 
 We can now call `submit_slurm_job` as usual and we will see several messages sent to ntfy.sh
-![](/src/assets/ntfy_sh_nmm.png)
+![](/slurmtools-docs/ntfy_sh_nmm.png)
 
 <Aside type="tip">`nmm` can use any binary for sending messages! You can create your own or grab any cli-like messaging tools and use it with `nmm` just by updating the config file.</Aside>

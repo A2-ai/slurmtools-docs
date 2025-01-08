@@ -4,20 +4,20 @@ description: A guide for slurmtools.
 pagefind: true
 ---
 
-import { Aside, Code, Steps } from '@astrojs/starlight/components';
+import { Aside, Code, Steps, Icon } from '@astrojs/starlight/components';
 
-This guide will expand upon how to write a template file to incorporate [ntfy.sh](https://ntfy.sh) notifications! 
+This guide will expand upon how to write a template file to incorporate [ntfy.sh](https://ntfy.sh)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span>. notifications! 
 > ntfy (pronounced notify) is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer, and/or using a REST API. It's infinitely flexible, and 100% free software.
 
 ## Prerequisites
 <Steps>
-1. Familiarity with [`submit_slurm_job`](/guides/submit_slurm_job)
-2. Familiarity with [simple template files](guides/simple_template_file)
+1. Familiarity with [`submit_slurm_job`](/slurmtools-docs/guides/submit_slurm_job)
+2. Familiarity with [simple template files](/slurmtools-docs/guides/simple_template_file)
 </Steps>
 
 ## ntfy.sh alerts
 
-We can start by adding a notification when the job starts and when it ends. Looking at the [ntfy.sh](https://ntfy.sh) website we can see:
+We can start by adding a notification when the job starts and when it ends. Looking at the [ntfy.sh](https://ntfy.sh)<span style={{ display: 'inline-block', verticalAlign: 'middle' }}><Icon name="external" /></span> website we can see:
 
 >Publishing messages can be done via PUT or POST. Topics are created on the fly by subscribing or publishing to them. If you use ntfy without sign-up, the topic is essentially a password, so pick something that's not easily guessable. If you purchase ntfy Pro, you can reserve topic names instead.
 
@@ -32,7 +32,7 @@ import tmpl from '/src/code/ntfy-template.tmpl?raw';
 
 <Code title='slurm-job.tmpl' lang='bash' code={tmpl}/>
 
-We can provide the needed arguments (`mytopic` and `ntfy`) through the [`slurm_template_opts` argument](/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument) using the following call to [`submit_slurm_job`](guides/submit_slurm_job)
+We can provide the needed arguments (`mytopic` and `ntfy`) through the [`slurm_template_opts` argument](/slurmtools-docs/reference/submit_slurm_job_reference#using-the-slurm_template_opts-argument) using the following call to [`submit_slurm_job`](guides/submit_slurm_job)
 
 import submit from '/src/code/ntfy-submit.R?raw';
 
@@ -41,4 +41,4 @@ import submit from '/src/code/ntfy-submit.R?raw';
 ## Job status alerts
 This sends off two messages to [ntfy.sh](https://ntfy.sh):
 
-![](/src/assets/ntfy_sh.png)
+![](/slurmtools-docs/ntfy_sh.png)
