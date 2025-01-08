@@ -11,7 +11,7 @@ This guide describes how to create a [NONMEMmonitor](https://github.com/a2-ai/no
 ## Prerequisites
 <Steps>
 1. `nmm` installed
-2. [`nmm` specific template file](/blogs/nmm_template)
+2. [`nmm` specific template file](/slurmtools-docs/blogs/nmm_template)
 </Steps>
 
 ## Generating a `nmm` config
@@ -22,7 +22,7 @@ import generate_nmm from '/src/code/generate_nmm.R?raw';
 <Code lang='r' title='generate_nmm_config.R' code={generate_nmm}/>
 
 <Aside type='note'>
-To understand what the [`watched_dir` argument](/reference/generate_nmm_config_reference#using-the-watched_dir-argument) and [`output_dir` argument](/reference/generate_nmm_config_reference#using-the-output_dir-argument) are doing, see the [`generate_nmm_config` reference guide](/reference/generate_nmm_config_reference)
+To understand what the [`watched_dir` argument](/slurmtools-docs/reference/generate_nmm_config_reference#using-the-watched_dir-argument) and [`output_dir` argument](/slurmtools-docs/reference/generate_nmm_config_reference#using-the-output_dir-argument) are doing, see the [`generate_nmm_config` reference guide](/slurmtools-docs/reference/generate_nmm_config_reference)
 </Aside>
 
 This function call will generate a `1001.toml` file with the following contents
@@ -33,7 +33,7 @@ output_dir = '/cluster-data/user-homes/user/slurmtools/model/nonmem/in_progress'
 />
 
 ## Submitting a NONMEM job
-You can then use [`submit_slurm_job`](/guides/submit_slurm_job) as normal!
+You can then use [`submit_slurm_job`](/slurmtools-docs/guides/submit_slurm_job) as normal!
 
 ## Next steps
-For more advanced usage: If you’re interested in learning how to use non-default arguments with submit_slurm_job for more customized job submissions, please check out our [`generate_nmm_config` Reference Guide](/reference/generate_nmm_config_reference)! If you'd like to integrate notifications with `nmm` please see the [`nmm` alerter configuration guide](/blogs/using_alerter_with_nmm)
+For more advanced usage: If you’re interested in learning how to use non-default arguments with submit_slurm_job for more customized job submissions, please check out our [`generate_nmm_config` Reference Guide](/reference/generate_nmm_config_reference)! If you'd like to integrate notifications with `nmm` please see the [`nmm` alerter configuration guide](/slurmtools-docs/blogs/using_alerter_with_nmm)
