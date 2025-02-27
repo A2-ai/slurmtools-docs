@@ -7,7 +7,7 @@
 #SBATCH --account=slurmtools
 
 #/cluster-data/user-homes/user/Packages/slurmtools
-# submit_nonmem_model uses the whisker package to populate template files
+# submit_slurm_job uses the whisker package to populate template files
 # https://github.com/edwindj/whisker
 
 
